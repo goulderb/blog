@@ -8,8 +8,13 @@ services:
     environment:
       POSTGRES_PASSWORD: password1234
       POSTGRES_DB: blog
-  srv-http:
+  backend-srv-http:
     image: blog/backend-srv-http:latest
     restart: always
     ports:
       - 3000:3000
+  frontend-app-blog:
+    image: blog/frontend-app-blog:latest
+    restart: always
+    ports:
+      - 8080:3000
