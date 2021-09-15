@@ -1,0 +1,15 @@
+{
+  "name": "@blog/backend-lib-core",
+  "version": "1.0.0",
+  "description": "",
+  "author": "Brett Goulder",
+  "license": "ISC",
+  "main": "./dist/index.js",
+  "scripts": {
+    "clean": "rimraf dist",
+    "build": "tsc -b",
+    "test": "jest",
+    "watch": "tsc -b -w"
+  },
+  "dependencies": {}
+}

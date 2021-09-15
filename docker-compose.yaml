@@ -1,0 +1,15 @@
+version: "3.8"
+services:
+  postgres:
+    image: postgres:13.3-alpine3.14
+    restart: always
+    ports:
+      - 5432:5432
+    environment:
+      POSTGRES_PASSWORD: password1234
+      POSTGRES_DB: blog
+  srv-http:
+    image: blog/backend-srv-http:latest
+    restart: always
+    ports:
+      - 3000:3000
