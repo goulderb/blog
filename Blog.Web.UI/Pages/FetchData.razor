@@ -43,6 +43,6 @@ else
 
     protected override async Task OnInitializedAsync()
     {
-        forecasts = await _restClient.GetJsonAsync<WeatherForecast[]>("http://localhost:5249/WeatherForecast");
+        forecasts = await _restClient.GetJsonAsync<WeatherForecast[]>("http://localhost:5249/api/v1/weather/forecast");
     }
 }
