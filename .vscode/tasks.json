@@ -1,0 +1,41 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"type": "dotnet",
+			"task": "watch Blog.Web.API",
+			"file": "/Users/brettgoulder/Development/blog/Blog.Web.API/Blog.Web.API.csproj",
+			"problemMatcher": [
+				"$msCompile"
+			],
+			"label": "dotnet: watch Blog.Web.API"
+		},
+		{
+			"type": "dotnet",
+			"task": "watch Blog.Web.UI",
+			"file": "/Users/brettgoulder/Development/blog/Blog.Web.UI/Blog.Web.UI.csproj",
+			"problemMatcher": [
+				"$msCompile"
+			],
+			"label": "dotnet: watch Blog.Web.UI"
+		},
+		{
+			"type": "dotnet",
+			"task": "build",
+			"problemMatcher": [
+				"$msCompile"
+			],
+			"group": "build",
+			"label": "dotnet: build"
+		},
+		{
+			"type": "dotnet",
+			"task": "clean",
+			"problemMatcher": [
+				"$msCompile"
+			],
+			"group": "none",
+			"label": "dotnet: clean"
+		}
+	]
+}
