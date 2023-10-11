@@ -1,0 +1,17 @@
+<Project Sdk="MSBuild.Sdk.SqlProj/2.6.1">
+    <PropertyGroup>
+        <TargetFramework>netstandard2.0</TargetFramework>
+        <SqlServerVersion>SqlAzure</SqlServerVersion>
+    </PropertyGroup>
+
+    <PropertyGroup>
+        <TargetServerName>localhost</TargetServerName>
+        <TargetDatabaseName>Blog</TargetDatabaseName>
+        <TargetPort>1433</TargetPort>
+        <TargetUser>SA</TargetUser>
+        <TargetPassword>Passw@rd</TargetPassword>
+        <DeployOnPublish>True</DeployOnPublish>
+        <BlockOnPossibleDataLoss>True</BlockOnPossibleDataLoss>
+        <IgnoreColumnOrder>True</IgnoreColumnOrder>
+    </PropertyGroup>
+</Project>

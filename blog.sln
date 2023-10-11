@@ -6,6 +6,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Blog.Web.API", "Blog.Web.AP
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Blog.Web.UI", "Blog.Web.UI\Blog.Web.UI.csproj", "{BC82A232-9863-40C9-9556-719B6C03005F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Blog.DB.SQL", "Blog.DB.SQL\Blog.DB.SQL.csproj", "{CE392CAF-C30B-46F2-B9AF-442FEC25E57D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -23,5 +25,9 @@ Global
 		{BC82A232-9863-40C9-9556-719B6C03005F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BC82A232-9863-40C9-9556-719B6C03005F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BC82A232-9863-40C9-9556-719B6C03005F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CE392CAF-C30B-46F2-B9AF-442FEC25E57D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CE392CAF-C30B-46F2-B9AF-442FEC25E57D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CE392CAF-C30B-46F2-B9AF-442FEC25E57D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CE392CAF-C30B-46F2-B9AF-442FEC25E57D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
