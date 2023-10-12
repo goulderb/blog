@@ -20,7 +20,7 @@ public class PostController : ControllerBase
 
     [HttpGet]
     [Route("")]
-    public async Task<IEnumerable<Post>> Index()
+    public async Task<IEnumerable<Post>> Index([FromQuery] PostFilter filter)
     {
         using var connection = _blogContext.CreateConnection();
 
@@ -32,7 +32,12 @@ public class PostController : ControllerBase
                 P.Post_Body AS Body,
                 P.Posted_Date AS PostedDate
             FROM Blog.Post AS P
-            "
+            WHERE (@Subject IS NULL OR P.Post_Subject LIKE @Subject + '%')
+                AND (@Body IS NULL OR P.Post_Body LIKE @Body + '%')
+                AND (@StartDate IS NULL OR P.Posted_Date >= @StartDate)
+                AND (@EndDate IS NULL OR P.Posted_Date >= @EndDate);
+            ",
+            filter
         );
 
         return results;

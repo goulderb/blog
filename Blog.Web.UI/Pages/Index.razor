@@ -1,24 +1,67 @@
 ﻿@page "/"
 @using Blog.Web.API.Blog.V1.Model;
 @using RestSharp
+@using Microsoft.AspNetCore.WebUtilities;
 @inject RestClient _restClient
 
 <PageTitle>Posts</PageTitle>
 
-<RadzenDataGrid Data="@posts" TItem="Post">
-    <Columns>
-        <RadzenDataGridColumn TItem="Post" Property="PostID" Title="Post ID" />
-        <RadzenDataGridColumn TItem="Post" Property="Subject" Title="Subject" />
-        <RadzenDataGridColumn TItem="Post" Property="Body" Title="Body" />
-        <RadzenDataGridColumn TItem="Post" Property="PostedDate" Title="Posted Date" FormatString="{0:u}" />
-    </Columns>
-</RadzenDataGrid>
+<h1>Posts</h1>
+
+<RadzenStack Orientation="Orientation.Vertical" AlignItems="AlignItems.Center">
+    <RadzenTemplateForm TItem="PostFilter" Data="@_filter" Submit=@OnSubmit>
+        <ValidationSummary></ValidationSummary>
+        <RadzenStack Orientation="Orientation.Horizontal">
+            <RadzenFormField Text="Subject">
+                <RadzenTextBox Name="Subject" @bind-Value="_filter.Subject" />
+                <RadzenLengthValidator Component="Subject" Max="60" />
+            </RadzenFormField>
+            <RadzenFormField Text="Body">
+                <RadzenTextBox @bind-Value="_filter.Body" />
+                <ValidationMessage For="@(() => _filter.Body)" />
+            </RadzenFormField>
+            <RadzenFormField Text="Start Date">
+                <RadzenDatePicker @bind-Value="_filter.StartDate" />
+                <ValidationMessage For="@(() => _filter.StartDate)" />
+            </RadzenFormField>
+            <RadzenFormField Text="End Date">
+                <RadzenDatePicker @bind-Value="_filter.EndDate" />
+                <ValidationMessage For="@(() => _filter.EndDate)" />
+            </RadzenFormField>
+        </RadzenStack>
+        <RadzenRow>
+            <RadzenButton Text="Search" ButtonType="ButtonType.Submit" />
+        </RadzenRow>
+    </RadzenTemplateForm>
+
+    @if (_posts != null)
+    {
+        <RadzenDataGrid Data="@_posts" TItem="Post">
+            <Columns>
+                <RadzenDataGridColumn TItem="Post" Property="PostID" Title="Post ID" />
+                <RadzenDataGridColumn TItem="Post" Property="Subject" Title="Subject" />
+                <RadzenDataGridColumn TItem="Post" Property="Body" Title="Body" />
+                <RadzenDataGridColumn TItem="Post" Property="PostedDate" Title="Posted Date">
+                    <Template Context="data">
+                        @data.PostedDate.ToLocalTime().ToString("g")
+                    </Template>
+                </RadzenDataGridColumn>
+            </Columns>
+        </RadzenDataGrid>
+    }
+</RadzenStack>
 
 @code {
-    private Post[]? posts;
+    private const string BlogPostURI = "http://localhost:5249/api/v1/blog/post";
 
-    protected override async Task OnInitializedAsync()
+    private PostFilter _filter = new PostFilter();
+
+    private Post[]? _posts;
+
+    private async Task OnSubmit(PostFilter filter)
     {
-        posts = await _restClient.GetJsonAsync<Post[]>("http://localhost:5249/api/v1/blog/post");
+        var filterValues = Helpers.ToDictionary(filter);
+        var uri = QueryHelpers.AddQueryString(BlogPostURI, filterValues);
+        _posts = await _restClient.GetJsonAsync<Post[]>(uri);
     }
 }
