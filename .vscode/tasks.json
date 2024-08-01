@@ -3,21 +3,21 @@
 	"tasks": [
 		{
 			"type": "dotnet",
-			"task": "watch Blog.Web.API",
-			"file": "/Users/brettgoulder/Development/blog/Blog.Web.API/Blog.Web.API.csproj",
+			"task": "watch Grocery.Tracking.Web.API",
+			"file": "/Users/brettgoulder/Development/blog/Grocery.Tracking.Web.API/Grocery.Tracking.Web.API.csproj",
 			"problemMatcher": [
 				"$msCompile"
 			],
-			"label": "dotnet: watch Blog.Web.API"
+			"label": "dotnet: watch Grocery.Tracking.Web.API"
 		},
 		{
 			"type": "dotnet",
-			"task": "watch Blog.Web.UI",
-			"file": "/Users/brettgoulder/Development/blog/Blog.Web.UI/Blog.Web.UI.csproj",
+			"task": "watch Grocery.Tracking.Web.UI",
+			"file": "/Users/brettgoulder/Development/blog/Grocery.Tracking.Web.UI/Grocery.Tracking.Web.UI.csproj",
 			"problemMatcher": [
 				"$msCompile"
 			],
-			"label": "dotnet: watch Blog.Web.UI"
+			"label": "dotnet: watch Grocery.Tracking.Web.UI"
 		},
 		{
 			"type": "dotnet",

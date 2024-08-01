@@ -6,7 +6,15 @@
       "version": "162.0.52",
       "commands": [
         "sqlpackage"
-      ]
+      ],
+      "rollForward": false
+    },
+    "csharpier": {
+      "version": "0.28.2",
+      "commands": [
+        "dotnet-csharpier"
+      ],
+      "rollForward": false
     }
   }
 }

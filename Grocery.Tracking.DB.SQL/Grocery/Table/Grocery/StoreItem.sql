@@ -1,0 +1,13 @@
+CREATE TABLE
+    Grocery.StoreItem (
+        StoreItemID UNIQUEIDENTIFIER NOT NULL CONSTRAINT DFStoreItemPK DEFAULT NEWSEQUENTIALID (),
+        StoreID UNIQUEIDENTIFIER NOT NULL,
+        ItemID UNIQUEIDENTIFIER NOT NULL,
+        Price DECIMAL(18, 4) NOT NULL CONSTRAINT DFStoreItemPrice DEFAULT 0,
+        CONSTRAINT FKStoreItemStore FOREIGN KEY (StoreID) REFERENCES Grocery.Store (StoreID),
+        CONSTRAINT FKStoreItemItem FOREIGN KEY (ItemID) REFERENCES Grocery.Item (ItemID)
+    );
+
+CREATE INDEX IXStoreItemStoreID ON Grocery.StoreItem (StoreID);
+
+CREATE INDEX IXStoreItemItemID ON Grocery.StoreITem (ItemID);
