@@ -4,8 +4,6 @@ VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Grocery.Tracking.Web.API", "Grocery.Tracking.Web.API\Grocery.Tracking.Web.API.csproj", "{E17E5845-DE9F-49BC-A8E3-017817F0A5D4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Grocery.Tracking.Web.UI", "Grocery.Tracking.Web.UI\Grocery.Tracking.Web.UI.csproj", "{BC82A232-9863-40C9-9556-719B6C03005F}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Grocery.Tracking.DB.SQL", "Grocery.Tracking.DB.SQL\Grocery.Tracking.DB.SQL.csproj", "{CE392CAF-C30B-46F2-B9AF-442FEC25E57D}"
 EndProject
 Global
